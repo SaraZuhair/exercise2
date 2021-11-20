@@ -39,6 +39,9 @@ class _exerciseState extends State<exercise> {
             ),
             child: Center(
               child: IconButton(
+                padding: EdgeInsets.only(
+                  right: 20,
+                ),
                 onPressed: () {
                   if (SizeisChecked) {
                     setState(() {
@@ -53,6 +56,9 @@ class _exerciseState extends State<exercise> {
                 icon: const Icon(Icons.remove),
               ),
             ),
+          ),
+          const SizedBox(
+            width: 7,
           ),
           GestureDetector(
             onTap: () {
@@ -135,11 +141,12 @@ class _exerciseState extends State<exercise> {
               ),
             ),
           ),
+          const SizedBox(
+            width: 7,
+          ),
           Container(
             height: 30,
             width: 30,
-            padding: EdgeInsets.only(right: 10),
-            margin: EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -149,22 +156,26 @@ class _exerciseState extends State<exercise> {
             ),
             child: Center(
               child: IconButton(
-                  padding: EdgeInsets.only(
-                    right: 20,
-                  ),
-                  onPressed: () {
-                    if (SizeisChecked) {
-                      setState(() {
-                        if (sz + small > 1500) {
-                          sz = 1500;
-                        } else {
-                          sz = sz + small;
-                        }
-                      });
-                    }
-                  },
-                  icon: const Icon(Icons.add)),
+                padding: EdgeInsets.only(
+                  right: 20,
+                ),
+                onPressed: () {
+                  if (SizeisChecked) {
+                    setState(() {
+                      if (sz + small > 1500) {
+                        sz = 1500;
+                      } else {
+                        sz = sz + small;
+                      }
+                    });
+                  }
+                },
+                icon: const Icon(Icons.add),
+              ),
             ),
+          ),
+          const SizedBox(
+            width: 7,
           ),
         ],
       ),
