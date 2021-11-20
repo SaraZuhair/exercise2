@@ -39,9 +39,6 @@ class _exerciseState extends State<exercise> {
             ),
             child: Center(
               child: IconButton(
-                padding: EdgeInsets.only(
-                  right: 5,
-                ),
                 onPressed: () {
                   if (SizeisChecked) {
                     setState(() {
@@ -56,9 +53,6 @@ class _exerciseState extends State<exercise> {
                 icon: const Icon(Icons.remove),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 7,
           ),
           GestureDetector(
             onTap: () {
@@ -141,12 +135,11 @@ class _exerciseState extends State<exercise> {
               ),
             ),
           ),
-          const SizedBox(
-            width: 7,
-          ),
           Container(
             height: 30,
             width: 30,
+            padding: EdgeInsets.only(right: 10),
+            margin: EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -157,7 +150,7 @@ class _exerciseState extends State<exercise> {
             child: Center(
               child: IconButton(
                   padding: EdgeInsets.only(
-                    right: 10,
+                    right: 20,
                   ),
                   onPressed: () {
                     if (SizeisChecked) {
@@ -172,9 +165,6 @@ class _exerciseState extends State<exercise> {
                   },
                   icon: const Icon(Icons.add)),
             ),
-          ),
-          const SizedBox(
-            width: 7,
           ),
         ],
       ),
@@ -204,6 +194,127 @@ class _exerciseState extends State<exercise> {
               ),
             )
           ],
+        ),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(
+                Icons.favorite,
+                color:
+                    Color.fromRGBO(red.toInt(), green.toInt(), blue.toInt(), 1),
+                size: sz,
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Slider(
+                          min: 0,
+                          max: 255,
+                          value: red,
+                          onChanged: (value) {
+                            if (ColorisChecked) {
+                              setState(() {
+                                red = value;
+                              });
+                            }
+                          },
+                        ),
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${red.toInt()}",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 10),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Slider(
+                          min: 0,
+                          max: 255,
+                          value: green,
+                          onChanged: (value) {
+                            if (ColorisChecked) {
+                              setState(() {
+                                green = value;
+                              });
+                            }
+                          },
+                        ),
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: const BoxDecoration(
+                            color: Colors.green,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${green.toInt()}",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 10),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Slider(
+                          min: 0,
+                          max: 255,
+                          value: blue,
+                          onChanged: (value) {
+                            if (ColorisChecked) {
+                              setState(() {
+                                blue = value;
+                              });
+                            }
+                          },
+                        ),
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "${blue.toInt()}",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 10),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
